@@ -110,8 +110,8 @@ console.log(coords.y);
 console.log(JSON.stringify(coords)); // {"x":10}
 
 for (var prop in coords) {
-    console.log(prop); // x y
-    console.log(coords[prop]); // 10 20
+    console.log(prop); // x
+    console.log(coords[prop]); // 10
 }
 
 Object.seal(coords); // preventExtensions + configurable false sur chaque

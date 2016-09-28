@@ -2,7 +2,7 @@
 
 console.log('Hello');
 
-let id = setInterval(function() {
+var id = setInterval(function() {
     console.log('Bonjour');
 }, 1000);
 
