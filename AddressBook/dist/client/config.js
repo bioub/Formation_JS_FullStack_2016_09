@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "/AddressBook/client/",
+  baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {

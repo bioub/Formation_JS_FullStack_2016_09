@@ -16,6 +16,13 @@ module.exports = function (grunt) {
                 }, {
                     src: 'client/jspm_packages/system.js',
                     dest: 'dist/client/jspm_packages/system.js'
+                }, {
+                    expand: true,
+                    src: 'server/**',
+                    dest: 'dist'
+                }, {
+                    src: 'package.json',
+                    dest: 'dist/package.json'
                 }]
             }
         },
