@@ -1,6 +1,10 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
+        clean: {
+            preBuild: ['dist/*'],
+            postBuild: ['.tmp'],
+        },
         copy: {
             build: {
                 files: [{
@@ -12,9 +16,6 @@ module.exports = function (grunt) {
                 }, {
                     src: 'client/jspm_packages/system.js',
                     dest: 'dist/client/jspm_packages/system.js'
-                },{
-                    src: 'client/jspm_packages/github/twbs/bootstrap@3.3.7/css/bootstrap.min.css',
-                    dest: 'dist/client/jspm_packages/github/twbs/bootstrap@3.3.7/css/bootstrap.min.css'
                 }]
             }
         },
@@ -34,14 +35,33 @@ module.exports = function (grunt) {
                     dest: "./dist/client/js/main.js"
                 }]
             }
+        },
+        useminPrepare: {
+            options: {
+                dest: 'dist/client'
+            },
+            html: 'client/index.html'
+        },
+        usemin: {
+            html: 'dist/client/index.html'
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-systemjs-builder');
 
     grunt.registerTask('build', [
+        'clean:preBuild',
         'copy:build',
-        'systemjs:build'
+        'systemjs:build',
+        'useminPrepare',
+        'concat:generated',
+        'cssmin:generated',
+        'usemin',
+        'clean:postBuild'
     ]);
 };
