@@ -2,4 +2,5 @@
 *.msi
 node_modules
 bower_components
+jspm_packages
 .idea
