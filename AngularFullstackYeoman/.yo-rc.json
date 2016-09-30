@@ -1,0 +1,12 @@
+{
+  "generator-ng-fullstack": {
+    "username": "bioub",
+    "appName": "angular-fullstack-yeoman",
+    "stack": "fullstack",
+    "server": "node",
+    "client": "ng1",
+    "transpilerServer": "babel",
+    "secure": false,
+    "differentStaticServer": false
+  }
+}

@@ -1,6 +1,10 @@
 {
   "name": "address-book",
   "version": "0.0.1",
+  "scripts": {
+    "start": "node server",
+    "start-dev": "nodemon server"
+  },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",

@@ -35,15 +35,35 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container" ng-controller="ContactAddCtrl">
 
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <div class="alert alert-success" ng-if="message" ng-cloak>
+        {{message}}
     </div>
+
+    <form ng-submit="ajouter()">
+        <div>
+            <input name="prenom" ng-model="contact.prenom">
+        </div>
+        <div>
+            <input name="nom" ng-model="contact.nom">
+        </div>
+        <div>
+            <button type="submit">Ajouter</button>
+        </div>
+    </form>
+
+    <p ng-cloak>Vous avez saisi : {{prenom}} {{nom}}</p>
 
 </div><!-- /.container -->
 
+<div class="container" ng-controller="ContactListCtrl">
+    <ul>
+        <li ng-repeat="contact in contacts" >
+            {{contact.prenom}} {{contact.nom}}
+        </li>
+    </ul>
+</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

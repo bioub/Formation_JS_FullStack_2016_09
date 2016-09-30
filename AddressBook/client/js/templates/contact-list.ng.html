@@ -1,0 +1,6 @@
+<ul>
+    <li ng-repeat="contact in contactList.contacts" >
+        {{contact.prenom}} {{contact.nom}}
+        <button ng-click="supprimer(contact)">-</button>
+    </li>
+</ul>

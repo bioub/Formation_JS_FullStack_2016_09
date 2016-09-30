@@ -7,4 +7,5 @@ let Contact = mongoose.model('contacts', {
     nom: String
 });
 
+
 module.exports = Contact;

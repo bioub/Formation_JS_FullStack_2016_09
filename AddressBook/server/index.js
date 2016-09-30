@@ -5,13 +5,14 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require('cors');
 const contact = require('./routes/contact');
+const path = require('path');
 
 mongoose.connect('mongodb://localhost/addressbook');
 
 var app = express();
 app.use(morgan('dev'));
 app.use(cors());
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(path.resolve(__dirname + '/../client')));
 
 app.use('/api/v1.0/contacts', contact);
 
@@ -31,6 +32,10 @@ app.use('/api', (err, req, res, next) => {
     });
 });
 
+// On sert index.html au lieu d'un erreur 404
+app.use((req, res, next) => {
+    res.sendFile(path.resolve(__dirname + '/../client/index.html'));
+});
 
 /*
 app.get('/api/v1.0/contacts', (req, res, next) => {});
