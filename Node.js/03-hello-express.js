@@ -1,5 +1,15 @@
-const http = require('http');
+const express = require('express');
 
+var server = express();
+
+server.get('/', (req, res) => {
+    res.send('hello world\n');
+});
+
+server.get('/toto', (req, res) => {
+    res.send('toto\n');
+});
+/*
 var server = http.createServer((req, res) => {
 
     switch (req.url) {
@@ -18,6 +28,7 @@ var server = http.createServer((req, res) => {
             res.end('Redirect\n');
     }
 });
+*/
 
 server.listen(8000, () => {
     console.log(`J'écoute`);
